@@ -1,0 +1,55 @@
+# ============================
+# Node.js / Express
+# ============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Entornos
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage/
+*.lcov
+
+# Logs
+logs/
+*.log
+debug.log
+error.log
+
+# Compilaciones
+dist/
+build/
+.tmp/
+
+# Archivos del editor
+.vscode/
+.idea/
+*.swp
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+*.pid
+
+# Swagger
+swagger/swagger-output.json
+
+# Cache
+.cache/
+.nyc_output/
+
+# SQL backups
+*.bak
+*.sql
+
+# Otros
+*.tmp
