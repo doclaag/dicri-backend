@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import { swaggerUi, specs } from './swagger/swagger.js';
 
 import rolesRoutes from './routes/roles.routes.js';
 import estadosRoutes from './routes/estados.routes.js';
@@ -16,6 +17,13 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
+  explorer: true,
+  customSiteTitle: "API DICRI Documentation",
+  customCss: '.swagger-ui .topbar { display: none }'
+}));
+
 app.use('/api', rolesRoutes);
 app.use('/api', estadosRoutes);
 app.use('/api', usuariosRoutes);
@@ -26,7 +34,8 @@ app.use('/api', reportesRoutes);
 app.get('/api', (req, res) => {
   res.json({ 
     message: 'API DICRI - Sistema de Gestión de Evidencias',
-    version: '1.0.0'
+    version: '1.0.0',
+    documentation: '/api-docs'
   });
 });
 
