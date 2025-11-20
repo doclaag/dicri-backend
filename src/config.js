@@ -8,8 +8,8 @@ export const config = {
     server: process.env.DB_SERVER,
     database: process.env.DB_DATABASE,
     options: {
-      encrypt: false,
-      trustServerCertificate: true,
+      encrypt: true,
+      trustServerCertificate: false,
       enableArithAbort: true
     },
     pool: {
